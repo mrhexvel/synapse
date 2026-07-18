@@ -1,7 +1,9 @@
-import prisma from "@/lib/db";
+"use client";
 
-const Page = async () => {
-  const users = await prisma.user.findMany();
+import { trpc } from "@/trpc/client";
+
+const Page = () => {
+  const { data: users } = trpc.getUsers.useQuery();
 
   return (
     <div className="flex h-screen items-center justify-center">
