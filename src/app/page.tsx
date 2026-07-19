@@ -16,6 +16,9 @@ const Page = () => {
       onSuccess: () => {
         toast.success("AI Job queued");
       },
+      onError: (ctx) => {
+        toast.error("Something went wrong");
+      },
     }),
   );
 

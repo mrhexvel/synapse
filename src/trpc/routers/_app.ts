@@ -10,7 +10,7 @@ export const appRouter = createTRPCRouter({
 
     return { success: true, message: "Job queued" };
   }),
-  getWorkflow: protectedProcedure.query(({ ctx }) => {
+  getWorkflow: protectedProcedure.query(() => {
     return prisma.workflow.findMany();
   }),
   createWorkflow: protectedProcedure.mutation(async () => {
