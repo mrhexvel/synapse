@@ -1,13 +1,14 @@
-"use client";
+import { requireAuth } from "@/lib/auth-utils";
+import { trpc } from "@/trpc/server";
 
-import { trpc } from "@/trpc/client";
+const Page = async () => {
+  await requireAuth();
 
-const Page = () => {
-  const { data: users } = trpc.getUsers.useQuery();
+  const data = await trpc.getUsers();
 
   return (
     <div className="flex h-screen items-center justify-center">
-      {JSON.stringify(users)}
+      {JSON.stringify(data)}
     </div>
   );
 };
