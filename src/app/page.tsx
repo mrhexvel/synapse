@@ -11,6 +11,14 @@ const Page = () => {
   const queryClient = useQueryClient();
   const { data } = useQuery(trpc.getWorkflow.queryOptions());
 
+  const testAi = useMutation(
+    trpc.testAI.mutationOptions({
+      onSuccess: () => {
+        toast.success("AI Job queued");
+      },
+    }),
+  );
+
   const create = useMutation(
     trpc.createWorkflow.mutationOptions({
       onSuccess: () => {
@@ -21,8 +29,11 @@ const Page = () => {
   );
 
   return (
-    <div className="flex flex-col h-screen items-center justify-center">
+    <div className="flex flex-col h-screen items-center justify-center gap-y-6">
       <div>{JSON.stringify(data, null, 2)}</div>
+      <Button disabled={testAi.isPending} onClick={() => testAi.mutate()}>
+        Test AI
+      </Button>
       <Button disabled={create.isPending} onClick={() => create.mutate()}>
         Create workflow
       </Button>
