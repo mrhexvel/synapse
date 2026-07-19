@@ -24,6 +24,7 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
+import Image from "next/image";
 import Link from "next/link";
 import { toast } from "sonner";
 
@@ -82,6 +83,12 @@ export function LoginForm() {
                     type="button"
                     disabled={isPending}
                   >
+                    <Image
+                      src="/logos/github.svg"
+                      width={20}
+                      height={20}
+                      alt="github"
+                    />
                     Continue with GitHub
                   </Button>
                   <Button
@@ -90,6 +97,12 @@ export function LoginForm() {
                     type="button"
                     disabled={isPending}
                   >
+                    <Image
+                      src="/logos/google.svg"
+                      width={20}
+                      height={20}
+                      alt="google"
+                    />
                     Continue with Google{" "}
                   </Button>
                 </div>
