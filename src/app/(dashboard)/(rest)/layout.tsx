@@ -1,7 +1,10 @@
 import { AppHeader } from "@/components/app-header";
-import { PropsWithChildren } from "react";
 
-export default function RestLayout({ children }: PropsWithChildren) {
+export default function RestLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <>
       <AppHeader />
