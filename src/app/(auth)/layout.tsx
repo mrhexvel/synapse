@@ -1,6 +1,5 @@
 import { AuthLayout } from "@/features/auth/components/auth-layout";
-import { PropsWithChildren } from "react";
 
-export default function Layout({ children }: PropsWithChildren) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return <AuthLayout>{children}</AuthLayout>;
 }
