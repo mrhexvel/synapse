@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
+@layer base {
+  @import "@xyflow/react/dist/style.css";
+}
 
 :root {
   --background: oklch(0.973 0.0133 286.1503);
